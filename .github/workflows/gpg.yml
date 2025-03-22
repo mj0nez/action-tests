@@ -13,4 +13,4 @@ jobs:
       - name: Verify commit signature.
         run: |
           curl -s https://github.com/web-flow.gpg | gpg --import
-          git verify commit "$GITHUB_SHA"
+          git verify-commit "$GITHUB_SHA"
