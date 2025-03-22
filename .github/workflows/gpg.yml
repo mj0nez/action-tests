@@ -1,0 +1,16 @@
+name: Gpg check test
+on:
+  push:
+
+
+jobs:
+  dependabot:
+    permissions:
+      contents: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify commit signature.
+        run: |
+          curl -s https://github.com/web-flow.gpg | gpg --import
+          git verify commit "$GITHUB_SHA"
